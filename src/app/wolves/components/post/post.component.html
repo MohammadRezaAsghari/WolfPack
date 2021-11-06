@@ -1,0 +1,30 @@
+<ng-progress id='postProgress'></ng-progress>
+<div class='card'>
+    <div class='card-body pb-1 mb-1'>
+        <h4 class='card__name text-white p-3'>{{name}}</h4>
+        <p class='card__box font-weight-bold pt-2'>
+            <small class="d-block">Gender</small>
+            <span>{{gender}}</span>
+        </p>
+        <p class='card__box font-weight-bold'>
+            <small class="d-block">ID</small>
+            <span>{{id}}</span>
+        </p>
+        <p class='card__box font-weight-bold pb-2'>
+            <small class="d-block">Birthday</small>
+            <span>{{birthday}}</span>
+        </p>
+    </div>
+    <div class='card-meta'>
+        <button
+            class='card-meta__edit text-white'
+            (click)='onEditPost($event)'>
+            &#9998; Edit
+        </button>
+        <button 
+            class='card-meta__delete'
+            (click)='onRemovePost($event)'>
+            &times; Delete 
+        </button>
+    </div>
+</div>

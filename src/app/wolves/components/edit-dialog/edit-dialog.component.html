@@ -1,0 +1,44 @@
+<form 
+  class="p-1"
+  (ngSubmit)='onClickSubmit()'>
+    <div class="form-group mb-3">
+      <label>Wolf Name</label>
+      <input 
+        type="text" 
+        class="form-control"  
+        placeholder="Wolf Name"
+        [(ngModel)]='formData.name'
+        name='wolfName'>
+    </div>
+    <div class="form-group mb-3">
+      <label>Gender</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        placeholder="male/female"
+        [(ngModel)]='formData.gender'
+        name='gender'>
+    </div>
+    <div class="form-group mb-3">
+      <label>Birthday</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        placeholder="YY-MM-DD"
+        [(ngModel)]='formData.birthday'
+        name='birthday'>
+    </div>
+    <div class="form-group mb-3">
+        <label>ID</label>
+        <input 
+          type='text' 
+          class='form-control'
+          [(ngModel)]='data.id' 
+          disabled 
+          name='id'>
+    </div>
+    <button 
+      type='submit'
+      class='btn btn-success d-block w-100'>
+      Edit</button>
+  </form>

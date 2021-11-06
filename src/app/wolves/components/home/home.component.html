@@ -1,0 +1,59 @@
+
+<ng-progress id="homeProgress"></ng-progress>
+<div class="container">
+    <header class="header p-3 bg-success text-white">WolfPack Project</header>
+</div>
+<div class="post-wrap container mb-3" *ngIf='posts'>
+    <app-post
+        *ngFor='let post of posts'
+        class='post-wrap__box mb-3'
+        [name]='post.name'
+        [gender]='post.gender'
+        [id]='post.id'
+        [birthday]='post.birthday'
+        (getWolvesEvent)='getAllWolves()'
+    >
+    </app-post>
+    <div class='add-post-holder mt-3'>
+        <button 
+            *ngIf = '!isOnAddNewPost'   
+            (click) = 'onAddPostClicked()' 
+            class='add-post-holder__btn bg-success'>
+            +</button>
+        <form 
+            *ngIf = 'isOnAddNewPost' 
+            class='w-75' 
+            [formGroup] = "formdata" 
+            (ngSubmit) = "onClickSubmit(formdata.value)">
+            <input 
+                type='text' 
+                class='form-control mb-1'  
+                placeholder='Wolf Name'
+                formControlName="formName"
+                name='formName'>
+            <input 
+                type='text' 
+                class='form-control mb-1' 
+                placeholder='wolf gender, male or female'
+                formControlName="formGender"
+                name='formGender'>
+            <input 
+                type='text' 
+                class='form-control mb-1' 
+                placeholder='date of birth (Y-m-d)'
+                formControlName="formBirth"
+                name='formBirth'>
+
+            <button 
+                type='submit'
+                class='btn btn-info text-white mb-1 d-block w-100'>
+            Submit
+            </button>
+
+            <button 
+                type='submit' 
+                class='btn btn-danger d-block w-100'
+                (click)='onCancelAddingNewPost()'>Cancel</button>
+          </form>
+    </div>
+</div>
